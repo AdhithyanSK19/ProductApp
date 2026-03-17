@@ -1,0 +1,6 @@
+@WalkersApp_HostAddress = http://localhost:5048
+
+GET {{WalkersApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

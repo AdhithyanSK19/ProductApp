@@ -1,0 +1,8 @@
+Obj to obj mapping
+Simplification
+Map between DTOs and Domain Modelsand vice-versa
+Quite powerful apart fromjust simple obj to obj mapping
+
+Install the Automapper Nuget and create mapping profiles.
+
+Inject the auto mapper into program.cs file specifying the type of Profile class

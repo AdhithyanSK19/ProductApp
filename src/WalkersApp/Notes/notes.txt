@@ -1,0 +1,67 @@
+Design pattern that seperates Data access layer  from the appliation
+Provides interface without exposing implementation.
+Helps create abstraction.
+Repository class is responsble for doing the CRUD operations.
+By injecting the interface, into the controller - the controller will not know whether its a SQL db or Mongo
+db but just uses the functions from the interface to do CRUD.
+BY this way the appliation becomes highly scalable.
+
+Benefits:
+1. Decoupling
+2. Consistency
+3. Performance
+4. Mutiple data sources.
+
+----------------------------------------------
+Model Validation
+
+1.Validate the model before proceeding with the actual logic
+2.If model is invalid throw 400 Bad request Http error to let the user know that the model is invalid
+3.Add Data annotations in the model and call the property Model.Isvalid in the controller
+id all good process, ifnot throw 400 BadRequest(Model).
+
+
+------------------------------------------------
+Custom Action Filters
+
+1.User made attributes to apply on the action method
+-----------------------------------------------
+Filtering
+1. From the query strings
+2. Use [FromQuery]
+3. Use IQueryable to filter, sort and paginate. After that return list
+4. Mostly in Get method only.
+5. Make sure query params are nullable and declare default parameter 
+value in the repos interface and class
+6. 
+
+-------------------------------------------
+Authentication and Authorisation:
+1. Microsoft.AspNetCore.Authentication.JwtBearer
+Microsoft.IdentityModel.Tokens
+System.IdentityModel.Tokens.Jwt
+Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+2. Add jwt in appsettings.json
+3. Audeince and Issuer are same for now but it will change 
+======================================================
+
+If there are multiple DbContext files, the DbContextOptions should not be non-generic.If not, this 
+is the exception we get.
+"Exception User-Unhandled
+
+System.InvalidOperationException: The DbContextOptions
+passed to the NZWalksDbContext constructor must be a DbContextOptions<NZWalksDbContext>.
+When registering multiple DbContext types, make sure that the constructor for each context 
+type has a DbContextOptions<Context> parameter rather than a non-generic DbContextOptions parameter.
+"
+========================================================
+
+Migration Syntax:
+
+Add-Migration "name" -Context "DbContextname"
+Update-Database -Context "DbContextname"
+
+If only one DbContext no need of -Context param.
+
+=======================================================
